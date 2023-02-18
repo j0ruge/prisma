@@ -116,3 +116,5 @@ yarn prisma studio
 ## Reference
 
 * (Prisma Quickstart)[https://www.prisma.io/docs/getting-started/quickstart]
+
+* (TypeScript Object Types)[https://www.typescriptlang.org/docs/handbook/2/objects.html]
