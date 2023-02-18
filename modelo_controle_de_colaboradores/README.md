@@ -73,8 +73,25 @@ To map your data model to the database schema, you need to use the prisma migrat
 
 ## Install Prisma Client
 
+```shell
+yarn add @prisma/client
+```
 
 
+{NOTE}: Whenever you make changes to your Prisma schema in the future, you manually need to invoke `prisma generate` in order to accommodate the changes in your Prisma Client API.
+
+
+### Querying the database
+```shell
+yarn ts-node index.ts
+```
+
+
+### Explore the data in Prisma Studio
+
+```shell
+yarn prisma studio
+```
 
 ----------------------------------------------------------------
 ## Reference
@@ -84,3 +101,4 @@ To map your data model to the database schema, you need to use the prisma migrat
 * (Using Prisma Migrate)[https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/using-prisma-migrate-typescript-postgres]
 
 * (Install Prisma Client)[https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/install-prisma-client-typescript-postgres]
+* (Querying the database)[https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/querying-the-database-typescript-postgres]
