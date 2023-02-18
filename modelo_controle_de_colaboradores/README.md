@@ -61,7 +61,26 @@ Here's a short explanation of each component:
 
 ```
 
+## Using Prisma Migrate
 
+```shell
+yarn prisma migrate dev --name init
+```
+
+To map your data model to the database schema, you need to use the prisma migrate CLI commands:
+
+
+
+## Install Prisma Client
+
+
+
+
+----------------------------------------------------------------
 ## Reference
 
 * (Connect your database)[https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/connect-your-database-typescript-postgres]
+
+* (Using Prisma Migrate)[https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/using-prisma-migrate-typescript-postgres]
+
+* (Install Prisma Client)[https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/install-prisma-client-typescript-postgres]
