@@ -1,5 +1,6 @@
 # prisma
 
+Runing the script with `yarn  ts-node script.ts` 
 
 ### Create a new User record
 
@@ -11,4 +12,9 @@
     },
   })
   console.log(user)
+```
+
+* Output:
+```shell
+{ id: 1, email: 'alice@prisma.io', name: 'Alice' }
 ```
