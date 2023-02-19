@@ -11,24 +11,34 @@ datasource db {
 }
 
 model Culto {
-  id               String       @id @unique @default(cuid())
+  id               String             @id @unique @default(cuid())
   data_culto       DateTime
   periodo_culto    String
-  dia_semana_culto String
-  colaborador_id   Colaborador? @relation(fields: [colaboradorId], references: [id])
-  funcao_culto     String
-  solo_playback    String?
-  colaboradorId    String?
+  dia_semana_culto String  
+  solo_playback    String?  
+  CultoColaborador CultoColaborador[]
 
   @@map("cultos")
 }
 
 model Colaborador {
-  id          String  @id @unique @default(cuid())
-  nome        String
-  created_at  DateTime @default(now())
-  culto       Culto[]
+  id               String             @id @unique @default(cuid())
+  nome             String
+  created_at       DateTime           @default(now())  
+  CultoColaborador CultoColaborador[]
 
   @@map("colaboradores")
 }
 
+//Exemplo Many to Many usando Prisma Schemes
+
+model CultoColaborador {
+  id             String      @id @unique @default(cuid())
+  id_culto       String
+  culto          Culto       @relation(fields: [id_culto], references: [id])
+  id_colaborador String
+  colaborador    Colaborador @relation(fields: [id_colaborador], references: [id])
+  funcao_culto     String
+
+  @@map("culto_colaborador")
+}

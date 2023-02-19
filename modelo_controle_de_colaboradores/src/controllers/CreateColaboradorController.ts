@@ -10,6 +10,6 @@ export class CreateColaboradorController{
                 nome,
             }
         });
-        return response.json();
+        return response.json(colaborador);
     }
 }
