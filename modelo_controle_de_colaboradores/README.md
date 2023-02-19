@@ -93,12 +93,37 @@ yarn ts-node index.ts
 yarn prisma studio
 ```
 
+## Prisma Builder
+
+Atrávés do [Prisma Builder](https://www.prismabuilder.io/schemas) conseguimos de maneira visual gerar o schema do banco de dados como o abaixo.
+
+
+```Typescript
+model culto {
+  id               String       @id @unique @default(cuid())
+  data_culto       DateTime
+  periodo_culto    String
+  dia_semana_culto String
+  colaborador_id   colaborador? @relation(fields: [colaboradorId], references: [id])
+  funcao_culto     String
+  solo_playback    String?
+  colaboradorId    String?
+}
+
+model colaborador {
+  id    String  @id @unique @default(cuid())
+  nome  String
+  culto culto[]
+}
+```
+
+
 ----------------------------------------------------------------
 ## Reference
 
-* (Connect your database)[https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/connect-your-database-typescript-postgres]
+* [Connect your database](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/connect-your-database-typescript-postgres)
 
-* (Using Prisma Migrate)[https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/using-prisma-migrate-typescript-postgres]
+* [Using Prisma Migrate](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/using-prisma-migrate-typescript-postgres)
 
-* (Install Prisma Client)[https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/install-prisma-client-typescript-postgres]
-* (Querying the database)[https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/querying-the-database-typescript-postgres]
+* [Install Prisma Client](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/install-prisma-client-typescript-postgres)
+* [Querying the database](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/querying-the-database-typescript-postgres)
