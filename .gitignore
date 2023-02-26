@@ -1,0 +1,13 @@
+.idea/
+.vscode/
+node_modules/
+build/
+temp/
+dist/
+DevOps/postgres/postgres
+.env
+coverage
+ormconfig.json
+./.env
+# tmp/*
+# !tmp/uploads/.gitkeep
