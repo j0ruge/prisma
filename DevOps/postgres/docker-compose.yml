@@ -12,8 +12,8 @@ services:
       POSTGRES_USER: ${POSTGRES_USERNAME}
       POSTGRES_DB: ${POSTGRES_DATABASE}
     ports:
-      - 5432:5432 #No Linux só funcionou sem usar variável de ambiente. 
-    #  - ${POSTGRES_LOCAL_PORT}:${POSTGRES_CONTAINER_PORT}
+    #  - 5432:5432 #No Linux só funcionou sem usar variável de ambiente. 
+      - ${POSTGRES_LOCAL_PORT}:${POSTGRES_CONTAINER_PORT}
 
 
 # volumes:
