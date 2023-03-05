@@ -17,3 +17,12 @@ insert into colaboradores(id, nome) values(uuid_generate_v1(),'Paulo Amaral');
 insert into colaboradores(id, nome) values(uuid_generate_v1(),'Daniele Lopes');
 
 ```
+
+### Cultos
+
+```sql
+--data_culto no formato YYYY-MM-DD
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+insert into cultos(id, data_culto, periodo_culto, dia_semana_culto) values(uuid_generate_v1(),'2022-12-17', 'Manhã', 'Sábado');
+
+```
