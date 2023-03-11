@@ -14,9 +14,9 @@ model Culto {
   id               String             @id @unique @default(cuid())
   data_culto       DateTime
   periodo_culto    String
-  dia_semana_culto String  
-  solo_playback    String?  
+  dia_semana_culto String     
   CultoColaborador CultoColaborador[]
+  CultoBradosDeJubilo CultoBradosDeJubilo[]
 
   @@map("cultos")
 }
@@ -30,6 +30,15 @@ model Colaborador {
   @@map("colaboradores")
 }
 
+
+model BradosDeJubilo{
+  id String @id @unique @default(cuid())
+  numero_brado	Int
+  nome_musica String
+  CultoBradosDeJubilo CultoBradosDeJubilo[]
+  @@map("brado_de_jubilo")
+}
+
 //Exemplo Many to Many usando Prisma Schemes
 
 model CultoColaborador {
@@ -41,4 +50,13 @@ model CultoColaborador {
   funcao_culto     String
 
   @@map("culto_colaborador")
+}
+
+model CultoBradosDeJubilo {
+  id            String @id @unique @default(cuid())
+  id_culto       String
+  culto          Culto       @relation(fields: [id_culto], references: [id])
+  id_brados_de_jubilo String
+  brado_de_jubilo BradosDeJubilo
+
 }
