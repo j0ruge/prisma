@@ -17,7 +17,7 @@ model Culto {
   dia_semana_culto    String
   CultoColaborador    CultoColaborador[]
   CultoBradosDeJubilo CultoBradosDeJubilo[]
-  Formulario          Formulario?
+  Formulario          Formulario? //One-to-One https://www.prisma.io/docs/concepts/components/prisma-schema/relations/one-to-one-relations
 
   @@map("cultos")
 }
@@ -30,7 +30,7 @@ model Colaborador {
   nome             String
   created_at       DateTime           @default(now())
   CultoColaborador CultoColaborador[]
-  formulario       Formulario[]
+  formulario       Formulario[] //One-to-One https://www.prisma.io/docs/concepts/components/prisma-schema/relations/one-to-one-relations
 
   @@map("colaboradores")
 }
