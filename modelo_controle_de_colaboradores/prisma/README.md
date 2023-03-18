@@ -2,6 +2,17 @@
 
 Evelin nos informou que com relação ao ```Brados de Júbilo```, existem duas versões, a nova e a antiga, e o número dos hinos foi alterado segundo ela, então devemos verificar como resolver esta questão neste modleo de dados. 
 
+
+# Joins
+
+
+```sql
+select * from cultos
+full join culto_colaborador on culto_colaborador.id_culto = cultos.id
+full join colaboradores on colaboradores.id = culto_colaborador.id_colaborador 
+
+```
+
 ## SEED
 
 ### Colaboradores
