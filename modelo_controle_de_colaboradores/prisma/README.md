@@ -48,3 +48,31 @@ insert into cultos(id, data_culto, periodo_culto, dia_semana_culto) values(uuid_
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 insert into brado_de_jubilo(id, numero_brado , nome_musica, versao_brado) values(uuid_generate_v1(),200, 'Sobre as ondas do Mar', 'antiga');
 ```
+
+### Cultos Colaboradores
+```sql 
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+insert into culto_colaborador(id, id_culto, id_colaborador, funcao_culto) values(uuid_generate_v1(), 'e49d4c86-bba0-11ed-be8c-0242ac120002','f56c4406-baa4-11ed-ad1c-0242ac120002', 'Mensagem');
+insert into culto_colaborador(id, id_culto, id_colaborador, funcao_culto) values(uuid_generate_v1(), '6c2fa1b8-bba5-11ed-be8c-0242ac120002','ca953eb0-bb92-11ed-be8c-0242ac120002', 'Solo');
+```
+
+Culto 17 de Dezembro
+'e49d4c86-bba0-11ed-be8c-0242ac120002'
+
+Pastor Luiz
+'f56c4406-baa4-11ed-ad1c-0242ac120002'
+'Mensagem'
+
+
+
+
+Culto 21 de Dezembro
+'6c2fa1b8-bba5-11ed-be8c-0242ac120002'
+
+Daniele
+
+'ca953eb0-bb92-11ed-be8c-0242ac120002'
+
+'Solo'
+
+

@@ -1,5 +1,10 @@
 
 
+## Modelo do Banco
+
+[Modelo do banco](https://whimsical.com/controle-de-colaboradores-NCfn3yiGWKYDsZrRFaAtEw)
+
+
 ## Installation
 
 ```shell
