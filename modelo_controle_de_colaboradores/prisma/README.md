@@ -1,6 +1,6 @@
 # Notas
 
-Evelin nos informou que com relação ao ```Brados de Júbilo```, existem duas versões, a nova e a antiga, e o número dos hinos foi alterado segundo ela, então devemos verificar coo resolver esta questão neste modleo de dados. 
+Evelin nos informou que com relação ao ```Brados de Júbilo```, existem duas versões, a nova e a antiga, e o número dos hinos foi alterado segundo ela, então devemos verificar como resolver esta questão neste modleo de dados. 
 
 ## SEED
 
@@ -35,5 +35,5 @@ insert into cultos(id, data_culto, periodo_culto, dia_semana_culto) values(uuid_
 ```sql  
 --hinos do brado
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-insert into brado_de_jubilo(id, numero_brado , nome_musica) values(uuid_generate_v1(),200, 'Sobre as ondas do Mar');
+insert into brado_de_jubilo(id, numero_brado , nome_musica, versao_brado) values(uuid_generate_v1(),200, 'Sobre as ondas do Mar', 'antiga');
 ```

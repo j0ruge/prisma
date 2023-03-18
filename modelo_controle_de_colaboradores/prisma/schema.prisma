@@ -11,33 +11,52 @@ datasource db {
 }
 
 model Culto {
-  id               String             @id @unique @default(cuid())
-  data_culto       DateTime
-  periodo_culto    String
-  dia_semana_culto String     
-  CultoColaborador CultoColaborador[]
-  CultoBradosDeJubilo CultoBradosDeJubilo[]  
+  id                  String                @id @unique @default(cuid())
+  data_culto          DateTime
+  periodo_culto       String
+  dia_semana_culto    String
+  CultoColaborador    CultoColaborador[]
+  CultoBradosDeJubilo CultoBradosDeJubilo[]
+  Formulario          Formulario?
 
   @@map("cultos")
 }
 
+//Exemplo One to Many usando Prisma Schemes
+//ref. https://www.prisma.io/docs/concepts/components/prisma-schema/relations/one-to-many-relations
+
 model Colaborador {
   id               String             @id @unique @default(cuid())
   nome             String
-  created_at       DateTime           @default(now())  
+  created_at       DateTime           @default(now())
   CultoColaborador CultoColaborador[]
+  formulario       Formulario[]
 
   @@map("colaboradores")
 }
 
+model Formulario {
+  id             String      @id @unique @default(cuid())
+  colaborador_id String
+  colaborador    Colaborador @relation(fields: [colaborador_id], references: [id])
+  culto_id       String      @unique
+  culto          Culto       @relation(fields: [culto_id], references: [id])
 
-model BradosDeJubilo{
-  id String @id @unique @default(cuid())
-  numero_brado	Int
-  versao_brado String
-  nome_musica String
+  resposta_formulario   DateTime
+  observacao_formulario String
+
+  @@map("formulario")
+}
+
+//One to Many Exemplo FIM
+
+model BradosDeJubilo {
+  id                  String                @id @unique @default(cuid())
+  numero_brado        Int
+  versao_brado        String
+  nome_musica         String
   CultoBradosDeJubilo CultoBradosDeJubilo[]
-  
+
   @@map("brado_de_jubilo")
 }
 
@@ -49,17 +68,17 @@ model CultoColaborador {
   culto          Culto       @relation(fields: [id_culto], references: [id])
   id_colaborador String
   colaborador    Colaborador @relation(fields: [id_colaborador], references: [id])
-  funcao_culto     String
+  funcao_culto   String
 
   @@map("culto_colaborador")
 }
 
 model CultoBradosDeJubilo {
-  id            String @id @unique @default(cuid())
-  id_culto       String
-  culto          Culto       @relation(fields: [id_culto], references: [id])
+  id                  String         @id @unique @default(cuid())
+  id_culto            String
+  culto               Culto          @relation(fields: [id_culto], references: [id])
   id_brados_de_jubilo String
-  brado_de_jubilo BradosDeJubilo @relation(fields: [id_brados_de_jubilo],references: [id])
+  brado_de_jubilo     BradosDeJubilo @relation(fields: [id_brados_de_jubilo], references: [id])
 
   @@map("culto_brado_de_jubilo")
 }
