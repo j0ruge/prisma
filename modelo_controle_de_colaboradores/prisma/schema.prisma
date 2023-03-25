@@ -82,3 +82,31 @@ model CultoBradosDeJubilo {
 
   @@map("culto_brado_de_jubilo")
 }
+
+
+model VersaoBiblia {
+  id          String      @id @unique @default(cuid())
+  nome_versao      String  
+  texto_biblico_versao_biblia TextoBiblicoVersaoBiblia[]
+
+  @@map("versao_biblia")
+} 
+
+model TextoBiblicoVersaoBiblia{
+  id          String      @id @unique @default(cuid())
+  id_texto_biblico String
+  texto_biblico TextoBiblico @relation(fields: [id_texto_biblico], references: [id])
+  id_versao_biblia String
+  versao_biblia VersaoBiblia @relation(fields: [id_versao_biblia], references: [id])
+
+  @@map("texto_biblico_versao_biblia")  
+  }
+
+model TextoBiblico{
+  id          String      @id @unique @default(cuid())
+  livro String
+  capitulo Int
+  versiculo Int  
+  texto_biblico_versao_biblia TextoBiblicoVersaoBiblia[]
+  @@map("texto_biblico")
+}
