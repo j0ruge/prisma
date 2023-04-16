@@ -18,6 +18,7 @@ model Culto {
   CultoColaborador    CultoColaborador[]
   CultoBradosDeJubilo CultoBradosDeJubilo[]
   Formulario          Formulario? //One-to-One https://www.prisma.io/docs/concepts/components/prisma-schema/relations/one-to-one-relations
+  CultoTextoBiblico   CultoTextoBiblico[]
 
   @@map("cultos")
 }
@@ -83,30 +84,41 @@ model CultoBradosDeJubilo {
   @@map("culto_brado_de_jubilo")
 }
 
-
 model VersaoBiblia {
-  id          String      @id @unique @default(cuid())
-  nome_versao      String  
+  id                          String                     @id @unique @default(cuid())
+  nome_versao                 String
   texto_biblico_versao_biblia TextoBiblicoVersaoBiblia[]
 
   @@map("versao_biblia")
-} 
+}
 
-model TextoBiblicoVersaoBiblia{
-  id          String      @id @unique @default(cuid())
+model TextoBiblicoVersaoBiblia {
+  id               String       @id @unique @default(cuid())
   id_texto_biblico String
-  texto_biblico TextoBiblico @relation(fields: [id_texto_biblico], references: [id])
+  texto_biblico    TextoBiblico @relation(fields: [id_texto_biblico], references: [id])
   id_versao_biblia String
-  versao_biblia VersaoBiblia @relation(fields: [id_versao_biblia], references: [id])
+  versao_biblia    VersaoBiblia @relation(fields: [id_versao_biblia], references: [id])
 
-  @@map("texto_biblico_versao_biblia")  
-  }
+  @@map("texto_biblico_versao_biblia")
+}
 
-model TextoBiblico{
-  id          String      @id @unique @default(cuid())
-  livro String
-  capitulo Int
-  versiculo Int  
+model TextoBiblico {
+  id                          String                     @id @unique @default(cuid())
+  livro                       String
+  capitulo                    Int
+  versiculo                   Int
   texto_biblico_versao_biblia TextoBiblicoVersaoBiblia[]
+  CultoTextoBiblico           CultoTextoBiblico[]
+
   @@map("texto_biblico")
+}
+
+model CultoTextoBiblico {
+  id               String       @id @unique @default(cuid())
+  id_culto         String
+  culto            Culto        @relation(fields: [id_culto], references: [id])
+  id_texto_biblico String
+  texto_biblico    TextoBiblico @relation(fields: [id_texto_biblico], references: [id])
+
+  @@map("culto_texto_biblico")
 }
