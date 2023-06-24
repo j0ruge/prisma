@@ -81,6 +81,7 @@ insert into brado_de_jubilo(id, numero_brado , nome_musica, versao_brado) values
 ```
 
 ### Cultos Colaboradores
+
 ```sql 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 insert into culto_colaborador(id, id_culto, id_colaborador, funcao_culto) values(uuid_generate_v1(), 'e49d4c86-bba0-11ed-be8c-0242ac120002','f56c4406-baa4-11ed-ad1c-0242ac120002', 'Mensagem');
@@ -99,20 +100,18 @@ insert into formulario(id, colaborador_id, resposta_formulario, observacao_formu
 values(uuid_generate_v1(), 'f56c4406-baa4-11ed-ad1c-0242ac120002', '12-16-2022 20:01:36','', 'e49d4c86-bba0-11ed-be8c-0242ac120002');
 ```
 
-# Dias de Culto
+## Dias de Culto
 
+### Culto 17 de Dezembro
 
-## Culto 17 de Dezembro
 'e49d4c86-bba0-11ed-be8c-0242ac120002'
 
 Pastor Luiz
 'f56c4406-baa4-11ed-ad1c-0242ac120002'
 'Mensagem'
 
+### Culto 21 de Dezembro
 
-
-
-## Culto 21 de Dezembro
 '6c2fa1b8-bba5-11ed-be8c-0242ac120002'
 
 Daniele
@@ -121,13 +120,9 @@ Daniele
 
 'Solo'
 
-
-
-
-## Culto 24 de Dezembro
+### Culto 24 de Dezembro
 
 '6c2fb0c2-bba5-11ed-be8c-0242ac120002'
-
 
 Paulo Amaral
 

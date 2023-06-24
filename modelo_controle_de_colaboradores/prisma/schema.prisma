@@ -19,8 +19,28 @@ model Culto {
   CultoBradosDeJubilo CultoBradosDeJubilo[]
   Formulario          Formulario? //One-to-One https://www.prisma.io/docs/concepts/components/prisma-schema/relations/one-to-one-relations
   CultoTextoBiblico   CultoTextoBiblico[]
+  CultoDiaSemanal     CultoDiaSemanal[]
 
   @@map("cultos")
+}
+
+model CultoDiaSemanal {
+  id             String @id @unique @default(cuid())
+  fk_culto       String
+  fk_dia_semanal String
+
+  culto       Culto      @relation(fields: [fk_culto], references: [id])
+  dia_semanal DiaSemanal @relation(fields: [fk_dia_semanal], references: [id])
+
+  @@map("culto_dia_semanal")
+}
+
+model DiaSemanal {
+  id              String            @id @unique @default(cuid())
+  dia_semana      String
+  culto_dia_semanal CultoDiaSemanal[]
+
+  @@map("dia_semanal")
 }
 
 //Exemplo One to Many usando Prisma Schemes
