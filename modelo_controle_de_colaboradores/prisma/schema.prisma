@@ -11,17 +11,36 @@ datasource db {
 }
 
 model Culto {
-  id                  String                @id @unique @default(cuid())
-  data_culto          DateTime
-  periodo_culto       String
-  
+  id            String   @id @unique @default(cuid())
+  data_culto    DateTime  
+
   CultoColaborador    CultoColaborador[]
   CultoBradosDeJubilo CultoBradosDeJubilo[]
   Formulario          Formulario? //One-to-One https://www.prisma.io/docs/concepts/components/prisma-schema/relations/one-to-one-relations
   CultoTextoBiblico   CultoTextoBiblico[]
   CultoDiaSemanal     CultoDiaSemanal[]
+  PeriodoCulto        PeriodoCulto[]
 
   @@map("cultos")
+}
+
+model PeriodoCulto {
+  id         String @id @unique @default(cuid())
+  fk_periodo String
+  fk_culto   String
+
+  culto   Culto   @relation(fields: [fk_culto], references: [id])
+  periodo Periodo @relation(fields: [fk_periodo], references: [id])
+
+  @@map("periodo_culto")
+}
+
+model Periodo {
+  id           String         @id @unique @default(cuid())
+  periodo      String
+  PeriodoCulto PeriodoCulto[]
+
+  @@map("periodo")
 }
 
 model CultoDiaSemanal {
@@ -36,8 +55,8 @@ model CultoDiaSemanal {
 }
 
 model DiaSemanal {
-  id              String            @id @unique @default(cuid())
-  dia_semana      String
+  id                String            @id @unique @default(cuid())
+  dia_semana        String
   culto_dia_semanal CultoDiaSemanal[]
 
   @@map("dia_semanal")
