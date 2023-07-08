@@ -25,8 +25,7 @@ model DeviceConection {
   conection   Conection @relation(fields: [conectionId], references: [id])
   deviceId    String
   conectionId String
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+
 
   @@map("device_conections")
 }
@@ -35,7 +34,7 @@ model Conection {
   id              String               @id @default(uuid())
   number          String
   channel_type    String
-  conection_type  String 
+  conector_type  String 
 
   DeviceConetions DeviceConection[]
 
