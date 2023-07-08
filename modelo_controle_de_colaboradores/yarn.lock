@@ -28,21 +28,21 @@
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
 "@prisma/client@^4.16.1":
-  version "4.16.1"
-  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-4.16.1.tgz#030bf59ee51f223bae2a8e7c49827528756cf03a"
-  integrity sha512-CoDHu7Bt+NuDo40ijoeHP79EHtECsPBTy3yte5Yo3op8TqXt/kV0OT5OrsWewKvQGKFMHhYQ+ePed3zzjYdGAw==
+  version "4.16.2"
+  resolved "https://registry.npmjs.org/@prisma/client/-/client-4.16.2.tgz"
+  integrity sha512-qCoEyxv1ZrQ4bKy39GnylE8Zq31IRmm8bNhNbZx7bF2cU5aiCCnSa93J2imF88MBjn7J9eUQneNxUQVJdl/rPQ==
   dependencies:
-    "@prisma/engines-version" "4.16.0-66.b20ead4d3ab9e78ac112966e242ded703f4a052c"
+    "@prisma/engines-version" "4.16.1-1.4bc8b6e1b66cb932731fb1bdbbc550d1e010de81"
 
-"@prisma/engines-version@4.16.0-66.b20ead4d3ab9e78ac112966e242ded703f4a052c":
-  version "4.16.0-66.b20ead4d3ab9e78ac112966e242ded703f4a052c"
-  resolved "https://registry.yarnpkg.com/@prisma/engines-version/-/engines-version-4.16.0-66.b20ead4d3ab9e78ac112966e242ded703f4a052c.tgz#54fd17f9a9080e13e2f75613fd35afb7875e3715"
-  integrity sha512-tMWAF/qF00fbUH1HB4Yjmz6bjh7fzkb7Y3NRoUfMlHu6V+O45MGvqwYxqwBjn1BIUXkl3r04W351D4qdJjrgvA==
+"@prisma/engines-version@4.16.1-1.4bc8b6e1b66cb932731fb1bdbbc550d1e010de81":
+  version "4.16.1-1.4bc8b6e1b66cb932731fb1bdbbc550d1e010de81"
+  resolved "https://registry.npmjs.org/@prisma/engines-version/-/engines-version-4.16.1-1.4bc8b6e1b66cb932731fb1bdbbc550d1e010de81.tgz"
+  integrity sha512-q617EUWfRIDTriWADZ4YiWRZXCa/WuhNgLTVd+HqWLffjMSPzyM5uOWoauX91wvQClSKZU4pzI4JJLQ9Kl62Qg==
 
-"@prisma/engines@4.16.1":
-  version "4.16.1"
-  resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-4.16.1.tgz#ee487620dc5135fd175ac7494b1c60c9f12c1e4b"
-  integrity sha512-gpZG0kGGxfemgvK/LghHdBIz+crHkZjzszja94xp4oytpsXrgt/Ice82MvPsWMleVIniKuARrowtsIsim0PFJQ==
+"@prisma/engines@4.16.2":
+  version "4.16.2"
+  resolved "https://registry.npmjs.org/@prisma/engines/-/engines-4.16.2.tgz"
+  integrity sha512-vx1nxVvN4QeT/cepQce68deh/Turxy5Mr+4L4zClFuK1GlxN3+ivxfuv+ej/gvidWn1cE1uAhW7ALLNlYbRUAw==
 
 "@tsconfig/node10@^1.0.7":
   version "1.0.9"
@@ -401,11 +401,6 @@ fs.realpath@^1.0.0:
   resolved "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
   integrity sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==
 
-fsevents@~2.3.2:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
-  integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
-
 function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/function-bind/-/function-bind-1.1.1.tgz"
@@ -636,12 +631,12 @@ picomatch@^2.0.4, picomatch@^2.2.1:
   resolved "https://registry.npmjs.org/picomatch/-/picomatch-2.3.1.tgz"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
-prisma@^4.16.1:
-  version "4.16.1"
-  resolved "https://registry.yarnpkg.com/prisma/-/prisma-4.16.1.tgz#c6d723a4326138a72489098a6c39a698a670fbbf"
-  integrity sha512-C2Xm7yxHxjFjjscBEW4tmoraPHH/Vyu/A0XABdbaFtoiOZARsxvOM7rwc2iZ0qVxbh0bGBGBWZUSXO/52/nHBQ==
+prisma@*, prisma@^4.16.1:
+  version "4.16.2"
+  resolved "https://registry.npmjs.org/prisma/-/prisma-4.16.2.tgz"
+  integrity sha512-SYCsBvDf0/7XSJyf2cHTLjLeTLVXYfqp7pG5eEVafFLeT0u/hLFz/9W196nDRGUOo1JfPatAEb+uEnTQImQC1g==
   dependencies:
-    "@prisma/engines" "4.16.1"
+    "@prisma/engines" "4.16.2"
 
 proxy-addr@~2.0.7:
   version "2.0.7"
@@ -852,12 +847,12 @@ type-is@~1.6.18:
     media-typer "0.3.0"
     mime-types "~2.1.24"
 
-typescript@^4.9.5:
+typescript@*, typescript@^4.9.5, typescript@>=2.7:
   version "4.9.5"
   resolved "https://registry.npmjs.org/typescript/-/typescript-4.9.5.tgz"
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
-unpipe@1.0.0, unpipe@~1.0.0:
+unpipe@~1.0.0, unpipe@1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/unpipe/-/unpipe-1.0.0.tgz"
   integrity sha512-pjy2bYhSsufwWlKwPc+l3cN7+wuJlK6uz0YdJEOlQDbl6jo/YlPi4mb8agUkVC8BF7V8NuzeyPNqRksA3hztKQ==
