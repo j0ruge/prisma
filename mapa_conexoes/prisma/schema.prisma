@@ -34,10 +34,8 @@ model DeviceConection {
 model Conection {
   id              String               @id @default(uuid())
   number          String
-  channel_type            String
-  conection_type            String
-
-  deviceId        String
+  channel_type    String
+  conection_type  String 
 
   DeviceConetions DeviceConection[]
 
