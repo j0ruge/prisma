@@ -11,30 +11,49 @@ datasource db {
 }
 
 model Device {
-  id              String               @id @default(uuid())
-  name            String
-  type            String
-  DeviceConetions DeviceConection[]
+  id                 String               @id @default(uuid())
+  name               String
+  type               String
+  DeviceConetions    DeviceConection[]
+  DeviceManufacturer DeviceManufacturer[]
 
   @@map("devices")
 }
 
+model DeviceManufacturer {
+  id             String       @id @default(uuid())
+  device         Device       @relation(fields: [deviceId], references: [id])
+  manufacturer   Manufacturer @relation(fields: [manufacturerId], references: [id])
+  deviceId       String
+  manufacturerId String
+
+  @@map("device_manufacturers")
+}
+
+model Manufacturer {
+  id   String @id @default(uuid())
+  name String
+
+  DeviceManufacturer DeviceManufacturer[]
+
+  @@map("manufacturers")
+}
+
 model DeviceConection {
-  id              String               @id @default(uuid())
+  id          String    @id @default(uuid())
   device      Device    @relation(fields: [deviceId], references: [id])
   conection   Conection @relation(fields: [conectionId], references: [id])
   deviceId    String
   conectionId String
 
-
   @@map("device_conections")
 }
 
 model Conection {
-  id              String               @id @default(uuid())
-  number          String
-  channel_type    String
-  conector_type  String 
+  id            String @id @default(uuid())
+  number        String
+  channel_type  String
+  conector_type String
 
   DeviceConetions DeviceConection[]
 
