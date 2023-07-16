@@ -14,7 +14,7 @@ model Device {
   id                 String               @id @default(uuid())
   name               String
   type               String
-  DeviceConetions    DeviceConection[]
+  DeviceConectors    DeviceConector[]
   DeviceManufacturer DeviceManufacturer[]
 
   @@map("devices")
@@ -39,23 +39,23 @@ model Manufacturer {
   @@map("manufacturers")
 }
 
-model DeviceConection {
+model DeviceConector {
   id          String    @id @default(uuid())
   device      Device    @relation(fields: [deviceId], references: [id])
-  conection   Conection @relation(fields: [conectionId], references: [id])
+  conector   Conector @relation(fields: [conectorId], references: [id])
   deviceId    String
-  conectionId String
+  conectorId String @map("conectiorId")
 
-  @@map("device_conections")
+  @@map("device_conectors")
 }
 
-model Conection {
+model Conector {
   id            String @id @default(uuid())
   number        String
   channel_type  String
   conector_type String
 
-  DeviceConetions DeviceConection[]
+  DeviceConectors DeviceConector[]
 
-  @@map("conections")
+  @@map("conectors")
 }
