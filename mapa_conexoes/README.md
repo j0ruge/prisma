@@ -1,4 +1,18 @@
+
+
 # Mapa de conexões
+
+## Requisitos
+
+
+### RF
+
+- [ ] O sistema deve permitir o cadastro de dispositivos de áudio
+- [ ] O sistema deve permitir o cadastro de conectores de áudio
+- [ ] O sistema deve ter um registro de tipo de conexões
+- [ ] O sistema deve ter um registro de tipo de canais
+- [ ] O sistema deve permitir o cadastro de conexões entre dispositivos e conectores
+
 
 ```sql
 select * from devices;
