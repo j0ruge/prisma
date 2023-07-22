@@ -14,6 +14,7 @@ model Device {
   id                  String               @id @default(uuid())
   name                String
   type                String
+
   DeviceConectors     DeviceConector[]
   DeviceManufacturers DeviceManufacturer[]
   source_device    Conection[] @relation("source_device")
@@ -68,16 +69,18 @@ model Conector {
 model Conection {
   id                   String @id @default(uuid())
   source_device_id     String @map("source_device_id")
-  destination_device_id String @map("destination_device_id")
   source_conector_id   String @map("source_conector_id")
+  destination_device_id String @map("destination_device_id")
   destination_conector_id String @map("destination_conector_id")
 
-
+  // Relação com a tabela Device para o dispositivo de origem
   source_device               Device @relation("source_device",fields: [source_device_id], references: [id]) 
-
-  destination_device          Device @relation("destination_device",fields: [destination_device_id], references: [id])
-
+  // Relação com a tabela Conector para o conector de origem
   source_conector             Conector @relation("source_conector",fields: [source_conector_id], references: [id])
+  
+  // Relação com a tabela Dispositivo para o dispositivo de destino
+  destination_device          Device @relation("destination_device",fields: [destination_device_id], references: [id])
+  // Relação com a tabela Conector para o conector de destino
   destination_conector        Conector @relation("destination_conector",fields: [destination_conector_id], references: [id])
 
   @@map("conections")

@@ -108,6 +108,8 @@ Essas relações permitem conectar as informações sobre as conexões de dispos
 
 
 ```js
+
+
 // schema.prisma
 
 model Dispositivo {
