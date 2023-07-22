@@ -16,8 +16,8 @@ model Device {
   type                String
   DeviceConectors     DeviceConector[]
   DeviceManufacturers DeviceManufacturer[]
-  source_conection    Conection[] @relation("source_conection")
-  destination_conection    Conection[] @relation("destination_conection")
+  source_device    Conection[] @relation("source_device")
+  destination_device    Conection[] @relation("destination_device")
 
   @@map("devices")
 }
@@ -43,10 +43,10 @@ model Manufacturer {
 
 model DeviceConector {
   id         String   @id @default(uuid())
-  device     Device   @relation(fields: [deviceId], references: [id])
-  conector   Conector @relation(fields: [conectorId], references: [id])
-  deviceId   String
-  conectorId String   @map("conectorId")
+  device     Device   @relation(fields: [device_id], references: [id])
+  conector   Conector @relation(fields: [conector_id], references: [id])
+  device_id   String @map("device_id")
+  conector_id String   @map("conector_id")
 
   @@map("device_conectors")
 }
@@ -70,11 +70,6 @@ model Conection {
 
   source_device               Device @relation("source_device",fields: [source_device_id], references: [id])
   destination_device          Device @relation("destination_device",fields: [destination_device_id], references: [id])
-  //destination_device     Device @relation(fields: [destination_device_id], references: [id])
-  //source_device      Device @relation(fields: [deviceId], references: [id])
-  //conector    Conector @relation(fields: [conectorId], references: [id])
-  
-  //conectorId  String @map("conectorId")
 
   @@map("conections")
 }
