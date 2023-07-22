@@ -44,7 +44,7 @@ model DeviceConector {
   device      Device    @relation(fields: [deviceId], references: [id])
   conector   Conector @relation(fields: [conectorId], references: [id])
   deviceId    String
-  conectorId String @map("conectiorId")
+  conectorId String @map("conectorId")
 
   @@map("device_conectors")
 }
