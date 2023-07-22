@@ -17,6 +17,8 @@ model Device {
 
   DeviceConectors     DeviceConector[]
   DeviceManufacturers DeviceManufacturer[]
+
+  // Relação com a tabela Conexao
   source_device    Conection[] @relation("source_device")
   destination_device    Conection[] @relation("destination_device")
 

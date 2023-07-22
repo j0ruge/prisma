@@ -86,8 +86,6 @@ Lembre-se de ajustar os atributos e campos de acordo com as necessidades especí
 
 ## relacionamentos
 
-amos analisar a relação entre as tabelas apresentadas acima:
-
     Tabela "dispositivos":
         Não há uma relação explícita com outra tabela nesta modelagem. Esta tabela representa uma entidade independente que armazena informações sobre os dispositivos de áudio. Cada dispositivo possui um ID único (device_id) como chave primária para identificação.
 
@@ -105,49 +103,3 @@ amos analisar a relação entre as tabelas apresentadas acima:
             A coluna "conector_destino_id" é outra chave estrangeira que referencia o "connector_id" na tabela "conectores". Isso indica que a conexão tem um conector de destino registrado na tabela "conectores".
 
 Essas relações permitem conectar as informações sobre as conexões de dispositivos de áudio com as informações dos próprios dispositivos e seus conectores correspondentes. Com esse modelo, você pode facilmente rastrear as conexões entre dispositivos e seus detalhes associados. As chaves estrangeiras garantem a integridade referencial e a consistência dos dados, evitando conexões inválidas com dispositivos ou conectores que não existam na base de dados.
-
-
-```js
-
-
-// schema.prisma
-
-model Dispositivo {
-  id            Int       @id @default(autoincrement())
-  nome_dispositivo String
-  // outros atributos relevantes do dispositivo
-
-  // Relação com a tabela Conexao
-  conexoes_de_origem  Conexao[] @relation("conexao_origem")
-  conexoes_de_destino Conexao[] @relation("conexao_destino")
-}
-
-model Conector {
-  id            Int       @id @default(autoincrement())
-  nome_conector String
-  tipo_conector String
-  // outros atributos relevantes do conector
-}
-
-model Conexao {
-  id                   Int      @id @default(autoincrement())
-  dispositivo_origem_id Int
-  conector_origem_id    Int
-  dispositivo_destino_id Int
-  conector_destino_id   Int
-  // outros atributos relevantes da conexão
-
-  // Relação com a tabela Dispositivo para o dispositivo de origem
-  dispositivo_origem   Dispositivo @relation("conexao_origem", fields: [dispositivo_origem_id], references: [id])
-
-  // Relação com a tabela Conector para o conector de origem
-  conector_origem      Conector    @relation("conexao_origem", fields: [conector_origem_id], references: [id])
-
-  // Relação com a tabela Dispositivo para o dispositivo de destino
-  dispositivo_destino  Dispositivo @relation("conexao_destino", fields: [dispositivo_destino_id], references: [id])
-
-  // Relação com a tabela Conector para o conector de destino
-  conector_destino     Conector    @relation("conexao_destino", fields: [conector_destino_id], references: [id])
-}
-
-```
