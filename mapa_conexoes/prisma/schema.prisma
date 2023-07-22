@@ -15,7 +15,7 @@ model Device {
   name               String
   type               String
   DeviceConectors    DeviceConector[]
-  DeviceManufacturer DeviceManufacturer[]
+  DeviceManufacturers DeviceManufacturer[]
 
   @@map("devices")
 }
@@ -34,7 +34,7 @@ model Manufacturer {
   id   String @id @default(uuid())
   name String
 
-  DeviceManufacturer DeviceManufacturer[]
+  DeviceManufacturers DeviceManufacturer[]
 
   @@map("manufacturers")
 }
