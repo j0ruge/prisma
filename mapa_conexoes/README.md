@@ -35,7 +35,15 @@ uuid_generate_v1(),
 )
 
 
+----
 
+INSERT INTO public.device_conectors (id,"deviceId","conectionId") VALUES
+	 ('2e5d9dc6-1dd0-11ee-ba27-0242ac120002','09cfdf87-4568-4147-bd6f-3457fde27ce7','ca69f1e4-1dce-11ee-ba27-0242ac120002'),
+	 ('2f9cf4ce-1dd1-11ee-ba27-0242ac120002','09cfdf87-4568-4147-bd6f-3457fde27ce7','0ec4751a-1dd1-11ee-ba27-0242ac120002');
+
+
+
+----
 
 select
 devices.name as device_name,
