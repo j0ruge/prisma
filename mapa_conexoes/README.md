@@ -1,9 +1,6 @@
-
-
 # Mapa de conexões
 
 ## Requisitos
-
 
 ### RF
 
